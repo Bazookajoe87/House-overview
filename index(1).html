@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>House Overview</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121819" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="House">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAC8ElEQVR42u3d2VUbQRBA0aEO+djh2DHY4ZAD6RCSf31YhKRRd1dV3/cPSNNXNYuE5unHn1+H9FlhEwgOwSE4BIfgEByCQ3AIDsEhwSE4BIfgEByCQ3AIDsEhOCQ4BIfgEByCQ3AIDsEhOASHBIfgEBwne3t5tRHg+FIGH3Bcmhl8wHFpb8LHcRxPm3+b4LcIfv79bXKQ4RAVjttXfVsfQQYfcJxd6Q19BBl8OFt55NJucgoTZBghW+MYsZY7+Agy+NgUx+j16+0jyOBjOxwz16yrj4ansguXqtkpbpBhhGyBI8PadPIRZNizNMdBBhxkTO0ZCzIaTg4y4CADjtYy3l5eK57i1rtCWu7w8/8HXGvMBBnTZBzVLpEFGdNklPNRY7dS8fCzwf/SBRlLZJQYIUHGEhklfEQzGYNm9bhT1sw+op+Mh/u4Xkb16VgDx8mZ8UAfo2Vk9pHubOW+zfTpEp7f4nNkpD2Fia4yzm/o+TKyjZBEk+OxMuYc2A5ayyTzI9rLuGNbr5WRZ35EXRk3/eD1PpbLyOMj6soY4SOJjCQ+Fh9zPOr5n798OeICaPXjj2U4Rmziu1/3aWWsJRJtZFz/a99t6PwyVv3paPY8b/VRQsaqBzB7tzLnGT58CO/5eeZoab/xVcuZD2be5Ji/ic+/yNK+XzpnfszAUfQLM/J/Ums0kWgs4+j4GYuZD3Ls5Ch6HFfrHwjGzY/YQcbR+h4J4x5wirfsp63Hty+yVDKWv3G/1xfjX157t+7aGsfx9e3cyPjY84bP2e3+TA7BITgEh+AQHIJDcAgOCQ7BITgEh+AQHMrcFp/nGPR5O7crl92KBIfgEByCQ3AIDsEhOASH4JDgEByCQ3AIDsEhOASH4BAcEhyCQ3AIDsEhOASH4BAcgkNwSHAIDsGhoaW4r6xMDsEhOASH4JDgEByCQ3AIDsEhOASH4BAcEhyCQ3AIDsEhOASH4BAcgkOCQ3AIDsEhOASH4BAcgkNwCA7pY/8AlH1gps7mi64AAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f2;--card:#fff;--ink:#1d2a2c;--mute:#5d696c;--line:#cfd7d4;--warn:#a3331f;--ok:#2b6b3f;--on:#fff;
+  --daughter:#9a6808;--home:#2f6b58;--animals:#8a4a1e;--wife:#a8325f;--self:#3f5aa8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121819;--card:#1b2325;--ink:#e8eeec;--mute:#a2afb0;--line:#33403f;--warn:#ff9b85;--ok:#7fd49a;--on:#0f1516;
+    --daughter:#e5b04a;--home:#6fc2a5;--animals:#e0955f;--wife:#ee7fa6;--self:#8ea6f0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121819;--card:#1b2325;--ink:#e8eeec;--mute:#a2afb0;--line:#33403f;--warn:#ff9b85;--ok:#7fd49a;--on:#0f1516;
+  --daughter:#e5b04a;--home:#6fc2a5;--animals:#e0955f;--wife:#ee7fa6;--self:#8ea6f0;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;padding:14px 14px 110px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.wrap{max-width:720px;margin:0 auto}
+h1{margin:2px 0 2px;font-size:1.75rem;letter-spacing:-.01em;line-height:1.15}
+h3{margin:0 0 8px;font-size:1.05rem}
+.sub{color:var(--mute);margin:0 0 12px;font-size:.95rem}
+.hint{color:var(--mute);font-weight:400;font-size:.88rem}
+button,input,select,textarea{font:inherit;color:inherit}
+input,select,textarea{font-size:16px;width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+textarea{min-height:76px;resize:vertical;display:block}
+input[type=checkbox]{width:24px;height:24px;min-height:0;padding:0;flex:none;accent-color:var(--home)}
+:focus-visible{outline:3px solid var(--self);outline-offset:2px}
+.panel{background:var(--card);border-radius:14px;padding:14px 16px;margin-bottom:14px}
+.panel.alert{border-left:5px solid var(--warn)}
+.panel.note{border-left:5px solid var(--home)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+@media(min-width:560px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:1.7rem;line-height:1.1}
+.stat span{color:var(--mute);font-size:.85rem}
+.stat.bad b{color:var(--warn)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:10px;background:var(--ink);color:var(--bg);padding:10px 14px;min-height:44px;font-size:.95rem;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}
+.btn.done{background:var(--c,var(--home));color:var(--on)}
+.btn.sm{min-height:36px;padding:6px 10px;font-size:.85rem}
+.rowb{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:10px 0 10px 12px;border-left:5px solid var(--c);margin-top:8px;background:var(--bg);border-radius:0 10px 10px 0;padding-right:8px}
+.row .t{font-weight:600}
+.row small{display:block;color:var(--mute);font-size:.85rem}
+.over{color:var(--warn);font-weight:600}
+.heads{color:var(--ink)!important}
+.item{border-top:1px solid var(--line);padding:10px 0}
+.item:first-of-type{border-top:0}
+.r1{display:flex;gap:6px;align-items:center}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.r2 label.wide{grid-column:1/-1}
+.r2 label,label.t{display:block;font-size:.8rem;color:var(--mute)}
+label.t{margin:12px 0 4px}
+.r2 input,.r2 select{margin-top:2px}
+.inl{display:flex;gap:6px;margin-top:2px}
+.inl input{width:68px;flex:none;margin:0}
+.inl select{margin:0;flex:1;min-width:0}
+.r3{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
+.due{font-size:.88rem;color:var(--mute)}
+.x{flex:none;border:0;background:none;color:var(--mute);font-size:1.5rem;line-height:1;width:44px;height:44px;cursor:pointer;border-radius:10px}
+.add{display:flex;gap:8px;margin-top:10px}
+.add button{flex:none;border:0;border-radius:10px;background:var(--c,var(--ink));color:var(--on);padding:0 16px;min-height:44px;font-weight:600}
+.add select{width:auto;flex:none;max-width:42%}
+details.card{background:var(--card);border-radius:14px;margin-bottom:12px;border-left:6px solid var(--c)}
+details.card>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;min-height:52px;font-weight:700;font-size:1.1rem}
+details.card>summary::-webkit-details-marker,details.more>summary::-webkit-details-marker{display:none}
+details.card>summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);flex:none;margin:-4px 4px 0 0}
+details.card[open]>summary::after{transform:rotate(-135deg);margin-top:4px}
+.chip{margin-left:auto;font-size:.8rem;font-weight:600;color:var(--mute);background:var(--bg);border-radius:999px;padding:3px 10px}
+.chip.bad{color:var(--warn)}
+.card .body{padding:0 16px 16px}
+details.more{margin-top:8px}
+details.more>summary{list-style:none;cursor:pointer;color:var(--mute);font-size:.85rem;min-height:36px;display:flex;align-items:center}
+details.panel>summary{list-style:none;cursor:pointer;font-weight:700;font-size:1.05rem;min-height:36px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+details.panel>summary::-webkit-details-marker{display:none}
+.chk{display:flex;gap:12px;align-items:center;min-height:44px;padding:4px 0;border-top:1px solid var(--line)}
+.chk:first-of-type{border-top:0}
+.prog{display:flex;gap:4px;margin:8px 0 12px}
+.prog i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.prog i.on{background:var(--home)}
+.her{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg)}
+.her h4{margin:12px 0 4px;font-size:.95rem}
+.her h4:first-child{margin-top:0}
+.her ul{margin:0;padding-left:20px}
+.steps{padding-left:22px;margin:8px 0}
+.steps li{margin-bottom:8px}
+pre.msg{white-space:pre-wrap;word-break:break-word;font:inherit;background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0 0}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(6,1fr);align-items:center;background:var(--card);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+.tabs button{border:0;background:none;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.7rem;font-weight:600;min-height:48px;border-radius:10px;cursor:pointer;white-space:nowrap;padding:0}
+.tabs button[aria-current="page"]{color:var(--home)}
+.tabs .addbtn{background:var(--ink);color:var(--bg);width:48px;min-height:48px;height:48px;border-radius:14px;margin:0 auto;font-size:1.9rem;font-weight:400;line-height:1;justify-content:center}
+.toast{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;max-width:560px;margin:0 auto;background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.92rem}
+.toast button{border:1px solid var(--bg);background:none;color:var(--bg);border-radius:8px;padding:6px 10px;min-height:36px;font-weight:600}
+.sheet{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.sheet>div{background:var(--card);width:100%;max-width:720px;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:92%;overflow:auto}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.seg.three button{font-size:.9rem;padding:4px 6px}
+.seg button{border:1px solid var(--line);background:none;border-radius:10px;min-height:44px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ev{border-top:1px solid var(--line);padding:12px 0}
+.ev:first-of-type{border-top:0}
+.evh{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.evh b{font-size:1.02rem}
+.evd{margin:6px 0 0;font-size:.95rem}
+.evd.note{color:var(--mute);font-size:.88rem}
+.grp{margin:16px 0 0;font-size:.9rem;color:var(--mute);font-weight:700}
+.grp:first-of-type{margin-top:4px}
+.sync{font-size:.85rem;color:var(--mute)}
+@media(prefers-reduced-motion:no-preference){.toast{animation:up .18s ease-out}@keyframes up{from{transform:translateY(8px);opacity:0}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <main id="view"></main>
+</div>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="sheet" class="sheet" hidden></div>
+<nav class="tabs" aria-label="Sections">
+  <button data-a="tab" data-t="today"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>Today</button>
+  <button data-a="tab" data-t="areas"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>Areas</button>
+  <button class="addbtn" data-a="fab" aria-label="Quick add">+</button>
+  <button data-a="tab" data-t="checkin"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 12h6M9 16h4"/></svg>Check-in</button>
+  <button data-a="tab" data-t="fun"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5l-5.4 3 1.2-6L3.3 9.3l6.1-.7z"/></svg>Fun</button>
+  <button data-a="tab" data-t="more"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><circle cx="5.5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="18.5" cy="12" r="1.8"/></svg>More</button>
+</nav>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- constants ---------- */
+const KEY="areas-v2", VERSION=3, MAXLOG=300;
+const DAYS=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const STEPS=["Overdue","This week","Dates and decisions","Wins and plans","Send"];
+
+/* [title, every, unit (d/w/m), starter days from today, addedInV3] */
+const AREAS=[
+ {id:"daughter",name:"Daughter",c:"var(--daughter)",il:"Things she's into or has asked for",
+  scope:"Her school, health, activities, friendships, and daily routines.",
+  done:"Forms are in on time. Appointments are booked before they're needed. She has what she needs for school and activities.",
+  up:[["School calendar: days off and early dismissals",0,"m",7],["Forms, supplies, and fees",0,"m",14],["Doctor checkup",12,"m",60],["Dentist cleaning",6,"m",45],["Parent-teacher conferences",0,"m",30],["School-night prep: bag, lunch, clothes",1,"w",3,1]]},
+ {id:"home",name:"Home",c:"var(--home)",il:"Project ideas and wish list",
+  scope:"The house, the cars, the yard, bills, and everything that breaks.",
+  done:"Nothing is overdue. Repairs have a date and a person assigned. Bills are paid. Seasonal prep is done before the season.",
+  up:[["Car oil change and maintenance",3,"m",21],["Furnace filter",3,"m",14],["Smoke and CO detector batteries",6,"m",30],["Winter prep: gutters, weather stripping, hoses, snow gear",12,"m",21],["Repairs list: what's broken and who fixes it",0,"m",7],["Trash and recycling out",1,"w",2,1],["Pay bills and check the budget",1,"m",10,1]]},
+ {id:"animals",name:"Animals",c:"var(--animals)",il:"Notes about the animals (food brand, meds, quirks)",
+  scope:"Pets' health, food, and care.",
+  done:"Shots and meds are current. Food never runs out. Licenses are renewed.",
+  up:[["Annual vet checkup",12,"m",60],["Vaccines and boosters",12,"m",60],["Flea, tick, and heartworm meds",1,"m",10],["Restock food and supplies",1,"m",7],["License renewals",12,"m",90]]},
+ {id:"wife",name:"Wife",c:"var(--wife)",il:"Things she's mentioned",tags:["Wants","Gift idea","Place to try","Favorite"],
+  scope:"Taking things off her plate, remembering what matters to her, and planning time together.",
+  done:"She doesn't have to remind me. Dates and gifts are planned ahead. She gets real time off.",
+  up:[["Book the next date night",1,"m",5],["Ask what would take stress off her this month",1,"m",7]]},
+ {id:"self",name:"Myself",c:"var(--self)",il:"Outing and hobby ideas",
+  scope:"My own health, friends, and the things that keep me steady.",
+  done:"I'm sleeping, moving, and seeing friends. My own appointments are booked.",
+  up:[["Plan the next family outing",1,"m",10],["Time for a hobby or friends",1,"m",5],["My own checkup",12,"m",90]]}
+];
+const SEASONS={
+ fall:["Clean the gutters and downspouts","Shut off and drain outdoor hoses and faucets","Service the furnace and swap the filter","Test smoke and CO detectors","Check weather stripping and door seals","Get snow gear ready: shovels, salt, snow blower check","Check the car: battery, tires, wipers, washer fluid"],
+ winter:["Keep walkways and the driveway clear","Check pipes and drafts during cold snaps","Restock the emergency kit: flashlights, batteries, blankets","Check the attic and basement for leaks","Keep a spare furnace filter on hand","Plan spring projects and book contractors early"],
+ spring:["Inspect the roof, gutters, and siding for winter damage","Turn outdoor water back on and check hoses","Service the AC before summer","Check window screens and seals","Deep clean and declutter","Repair lawn and yard damage","Clean the dryer vent"],
+ summer:["Replace AC filters","Seal or stain the deck and fence","Trim trees and shrubs away from the house","Check the sump pump and basement for moisture","Look for pests and wasp nests","Plan fall projects and family trips"]
+};
+const REPEATS=[["0|m","Once"],["1|w","Every week"],["1|m","Every month"],["3|m","Every 3 months"],["6|m","Every 6 months"],["12|m","Every year"]];
+
+
+/* ---------- family fun data (refreshed by asking Claude) ---------- */
+const FUN_UPDATED="2026-10-15";
+const FUN_AREAS=["Racine","Kenosha","Milwaukee","Waukesha County"];
+const EVENTS=[
+ {id:"jackolantern",t:"Jack-O'-Lantern Nights",s:"2026-10-01",e:"2026-10-31",tm:"Thursdays to Sundays, 6 to 10 p.m.",pl:"Racine Zoo, 2131 N. Main St.",town:"Racine",area:"Racine",d:"More than a thousand hand-carved jack-o'-lanterns and light displays along a paved path through the zoo.",cost:"Tickets at the door, separate from daytime admission. It was $10 per person last year, so confirm.",u:"https://racinezoo.org/node/851"},
+ {id:"trunkmp",t:"Trunk or Treat",s:"2026-10-17",tm:"3 p.m.",pl:"Campus Park, Mount Pleasant",town:"Mount Pleasant",area:"Racine",d:"Costumes and treats from car trunks. It's on the Racine County Halloween schedule.",u:"https://racinecountyeye.com/2026/10/06/2026-trick-or-treat-racine-county/"},
+ {id:"streets",t:"Streets Alive!",s:"2026-10-17",tm:"11 a.m. to 3 p.m.",pl:"Milwaukee Public Museum",town:"Milwaukee",area:"Milwaukee",d:"Costumed docents tell stories in the Streets of Old Milwaukee, decorated for Halloween. It is the last time at the museum's current home.",u:"https://radiomilwaukee.org/events-festivals/2026-10-15/milwaukee-halloween-activities-families"},
+ {id:"boomke",t:"Boo at the Zoo",dates:["2026-10-16","2026-10-17","2026-10-23","2026-10-24"],tm:"Fridays and Saturdays, with daytime Saturdays new this year. Confirm times.",pl:"Milwaukee County Zoo",town:"Milwaukee",area:"Milwaukee",d:"A trick-or-treat trail, pumpkin treats for the animals, live entertainment, light displays, and pumpkin-carving demonstrations.",u:"https://www.mkewithkids.com/post/weekend/"},
+ {id:"schlitz",t:"Species Spooktacular",s:"2026-10-18",tm:"10 a.m. to 3 p.m.",pl:"Schlitz Audubon Nature Center",town:"Milwaukee",area:"Milwaukee",d:"A spooky-season day at the nature center. Check the listing for what's planned.",u:"https://discoverthenorthshoremke.com/discover-events-calendar/"},
+ {id:"schuettmaze",t:"Not-haunted corn maze nights",dates:["2026-10-16","2026-10-17","2026-10-23","2026-10-24"],tm:"5 to 10 p.m., last entry at 9",pl:"Schuett Farms, State Highway 83",town:"Mukwonago",area:"Waukesha County",d:"An after-dark corn maze without the scares. The farm also has a pick-your-own pumpkin patch and weekend hayrides.",u:"https://www.schuettfarm.com/"},
+ {id:"elegantmaze",t:"Corn maze at The Elegant Farmer",s:"2026-09-12",e:"2026-10-25",tm:"Daytime",pl:"The Elegant Farmer",town:"Mukwonago",area:"Waukesha County",d:"A family-friendly daytime corn maze that is not haunted.",cost:"$10 per person by day. A flashlight maze on Friday and Saturday nights is $15, with dates not yet listed.",u:"https://lakecountryfamilyfun.com/corn-mazes-in-south-east-wisconsin/"},
+ {id:"borz",t:"Mad-scientist corn maze",e:"2026-10-31",dt:"Open weekends this month",tm:"Fridays to Sundays, 11 a.m. to 6 p.m.",pl:"Borzynski's Farm & Floral Market, 11600 Washington Ave.",town:"Mount Pleasant",area:"Racine",d:"An eight-acre maze that stays family-friendly after dark.",cost:"From $8.",note:"The last weekend wasn't listed. Confirm before you go.",u:"https://upnorthnewswi.com/local/things-to-do/corn-mazes-in-wisconsin/"},
+ {id:"thompson",t:"Fall Festival and Pumpkin Patch",s:"2026-09-12",e:"2026-10-25",tm:"Weekends",pl:"Thompson Farm, 7825 144th Ave.",town:"Bristol",area:"Kenosha",d:"A large pumpkin patch plus the weekend Adventure Farm.",u:"https://www.mkewithkids.com/post/milwaukee-area-pumpkin-patches-you-can-visit-this-year/"},
+ {id:"lindner",t:"Pumpkin farm and corn maze",s:"2026-09-12",e:"2026-10-31",tm:"Daily, 10 a.m. to 6 p.m.",pl:"Lindner's Pumpkin Farm, Cleveland Ave.",town:"New Berlin",area:"Waukesha County",d:"Pumpkins, a family-friendly corn maze, a petting zoo, and a big play area.",u:"https://www.mkewithkids.com/post/milwaukee-area-pumpkin-patches-you-can-visit-this-year/"},
+ {id:"boozoo",t:"Boo at the Zoo",s:"2026-10-24",tm:"10 a.m. to 4 p.m.",pl:"Racine Zoo, 2131 N. Main St.",town:"Racine",area:"Racine",d:"Trick-or-treat doors around the zoo, cookie and pumpkin decorating, a Halloween craft, bounce houses, and creepy-crawly animal meet-and-greets.",cost:"Included with regular zoo admission. Members and kids 2 and under are free.",u:"https://racinezoo.org/boo-zoo"},
+ {id:"candycrawl",t:"Candy Crawl and Haunted Scavenger Hunt",s:"2026-10-24",tm:"Noon to 2 p.m.",pl:"Downtown Racine",town:"Racine",area:"Racine",d:"Trick-or-treating and a scavenger hunt downtown.",u:"https://racinecountyeye.com/2026/10/06/2026-trick-or-treat-racine-county/"},
+ {id:"ramfun",t:"Free Fall Family Fun Fest",s:"2026-10-24",tm:"1 p.m.",pl:"RAM Wustum Museum",town:"Racine",area:"Racine",d:"A free family afternoon at the museum.",cost:"Free",u:"https://racinecountyeye.com/2026/10/06/2026-trick-or-treat-racine-county/"},
+ {id:"hollow",t:"Spooky Hollow",dates:["2026-10-23","2026-10-24"],tm:"6 to 9 p.m.",pl:"Hawthorn Hollow Nature Sanctuary, 880 Green Bay Rd.",town:"Kenosha",area:"Kenosha",d:"Night trails, folklore storytelling, old-time tintype photos, and a silent-film screening in a 90-acre sanctuary.",cost:"In advance: $15 adults, $10 kids 12 and under. At the gate: $20 and $15.",u:"https://www.kenosha.com/experience/activities-and-events/spooky-hollow-hawthorn-hollow/"},
+ {id:"fallintofun",t:"Fall Into Fun Fest",s:"2026-10-24",tm:"See the listing for times",pl:"Veterans Memorial Park",town:"Kenosha",area:"Kenosha",d:"Kicks off a full day of Halloween events in downtown Kenosha.",u:"https://www.kenosha.com/experience/activities-and-events/spooky-hollow-hawthorn-hollow/"},
+ {id:"sntrunk",t:"Special Needs Trunk-or-Treat",s:"2026-10-25",tm:"12:30 to 2:30 p.m.",pl:"Bradford High School",town:"Kenosha",area:"Kenosha",d:"A free, accessible Halloween event open to the whole community.",cost:"Free",u:"https://www.kenosha.com/experience/activities-and-events/kenosha-trick-or-treat-hours/"},
+ {id:"totken",t:"Trick-or-treat in Kenosha",s:"2026-10-31",tm:"4 to 7 p.m.",pl:"Neighborhoods citywide",town:"Kenosha",area:"Kenosha",d:"The city holds trick-or-treat on Halloween itself. A porch light on means treats.",u:"https://www.kenosha.com/experience/activities-and-events/kenosha-trick-or-treat-hours/"},
+ {id:"totracine",t:"Downtown Racine trick-or-treat",s:"2026-10-31",tm:"Noon to 2 p.m.",pl:"Downtown Racine",town:"Racine",area:"Racine",d:"Early trick-or-treating downtown on Halloween.",note:"Neighborhood hours differ by town. See the county schedule.",u:"https://racinecountyeye.com/2026/10/06/2026-trick-or-treat-racine-county/"},
+ {id:"racparade",t:"Holiday Parade and Tree Lighting",s:"2026-11-14",tm:"Carolers at 4:30 p.m., parade at 5:30 p.m.",pl:"Downtown Racine, Main Street",town:"Racine",area:"Racine",d:"The parade runs down Main Street to City Hall. Then Santa lights the tree at Monument Square, followed by fireworks.",cost:"Free",u:"https://racinedowntown.com/event/holiday-parade-and-tree-lighting/"},
+ {id:"kentree",t:"Christmas Tree Lighting and Lightin' Up Downtown",s:"2026-11-27",tm:"See the listing for the time",pl:"Veterans Memorial Park, 5220 Sixth Ave.",town:"Kenosha",area:"Kenosha",d:"The tree lighting kicks off the season, then downtown continues with family activities and live entertainment.",note:"Kenosha tourism pages list both Nov. 27 and Nov. 28. Confirm the date.",u:"https://www.visitkenosha.com/"},
+ {id:"gnome",t:"Holiday Gnome Hunt",s:"2026-11-27",e:"2026-12-31",tm:"Daily",pl:"Pringle Nature Center",town:"Bristol",area:"Kenosha",d:"Find the hidden gnomes around the nature center.",u:"https://www.visitkenosha.com/things-to-do/attractions/fun-101/"}
+];
+const IDEAS=[
+ {id:"carvehome",any:1,k:"home",t:"Pumpkin carving night",pl:"Home",d:"Pick pumpkins at a farm, scoop and carve at the kitchen table, and roast the seeds. Trace the design first with a dry-erase marker.",note:"Tip: a battery tea light is safer than a candle, and newspaper on the table saves cleanup."},
+ {id:"paintpump",any:1,k:"home",t:"Paint mini pumpkins",pl:"Home",d:"Small pumpkins and washable paint make a no-knife option for younger kids."},
+ {id:"bakefall",any:1,k:"home",t:"Bake something fall together",pl:"Home",d:"Apple crisp, pumpkin bread, or cookies. Let the kids measure and stir."},
+ {id:"movienight",any:1,k:"home",t:"Family movie night with a theme",pl:"Home",d:"Pick the movie together, make themed snacks, and let the kids build the blanket fort."},
+ {id:"fortread",any:1,k:"home",t:"Blanket fort and read-aloud",pl:"Home",d:"Build the fort, bring flashlights, and take turns reading a chapter."},
+ {id:"gamenight",any:1,k:"home",t:"Board game tournament",pl:"Home",d:"Pick a few games, keep score on a poster, and award the winner a silly trophy."},
+ {id:"campfire",any:1,k:"home",t:"Backyard fire and s'mores",pl:"Home",d:"On a cool evening, a small fire in a fire pit with s'mores and a few ghost stories.",note:"Check local burn rules and the weather first."},
+ {id:"costumes",any:1,k:"home",t:"Costume runway and photo shoot",pl:"Home",d:"Try on costumes, stage a hallway runway, and take the family photos early."},
+ {id:"pizzanight",any:1,k:"home",t:"Make-your-own pizza night",pl:"Home",d:"Everyone builds their own. Challenge each person to invent a topping combination."},
+ {id:"decorate",any:1,k:"home",t:"Decorate the house together",pl:"Home",d:"Halloween now, holiday lights later. Let each kid pick one spot to decorate."},
+ {id:"leaves",any:1,k:"home",t:"Rake and jump in the leaves",pl:"Home",d:"Rake a big pile, jump in, then bag it up as a team."},
+ {id:"swans",any:1,k:"out",t:"Swan's Pumpkin Farm",pl:"5930 County Road H",town:"Franksville",d:"Pumpkins, a petting zoo, hayrides, a corn maze, and a friendly spook house. Farm entry is free, with a wristband for rides and the maze.",note:"2026 hours weren't confirmed. Call 262-835-4885.",u:"https://www.travelwisconsin.com/things-to-do/attractions/animals-and-zoos/swan-s-pumpkin-farm"},
+ {id:"hikefall",any:1,k:"out",t:"Fall hike with hot cocoa",pl:"A county park near you",d:"Pick a park, bring a thermos, and let the kids lead. A leaf scavenger hunt keeps little legs going."},
+ {id:"lakewalk",any:1,k:"out",t:"Lakefront walk and a treat",pl:"Lake Michigan shoreline",d:"A walk along the water, then ice cream or hot chocolate. Easy, cheap, and everyone's outside."}
+];
+const GROUPS=["Open now","In the next 7 days","In 8 to 21 days","Later"];
+
+/* ---------- helpers ---------- */
+const $=(s,r)=>(r||document).querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+const fmt=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const parse=s=>{const p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2])};
+const today=()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())};
+const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+const addMonths=(d,n)=>{const t=new Date(d.getFullYear(),d.getMonth()+n,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();return new Date(t.getFullYear(),t.getMonth(),Math.min(d.getDate(),last))};
+const days=s=>Math.round((parse(s)-today())/864e5);
+const nice=s=>parse(s).toLocaleDateString(undefined,{month:"short",day:"numeric"});
+const longDate=d=>d.toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
+const uid=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-3);
+const cap1=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const sdate=n=>fmt(addDays(today(),n));
+const plural=(n,w)=>n+" "+w+(n===1?"":"s");
+
+function step(d,n,unit){return unit==="d"?addDays(d,n):unit==="w"?addDays(d,7*n):addMonths(d,n)}
+function due(u){if(u.every>0&&u.last)return fmt(step(parse(u.last),+u.every,u.unit||"m"));return u.d||""}
+function rel(ds){
+  if(!ds)return{t:"No date yet",o:false};
+  const n=days(ds);
+  if(n<0)return{t:"Overdue by "+plural(-n,"day"),o:true};
+  if(n===0)return{t:"Due today",o:false};
+  if(n===1)return{t:"Due tomorrow",o:false};
+  return{t:"In "+n+" days",o:false};
+}
+function mkItem(t,every,unit,d,st){return{id:uid(),t:t,every:every,unit:unit,last:"",d:d||"",h:"",n:"",st:!!st}}
+function dateInfo(x){
+  if(!x.d)return null;
+  const p=x.d.split("-"),t=today();
+  let o=new Date(t.getFullYear(),+p[1]-1,+p[2]);
+  if(o<t)o=new Date(t.getFullYear()+1,+p[1]-1,+p[2]);
+  const n=Math.round((o-t)/864e5);
+  return{o:fmt(o),n:n,plan:n<=(+x.w||0)*7};
+}
+function weekKey(d){const dow=(d.getDay()+6)%7;return fmt(addDays(new Date(d.getFullYear(),d.getMonth(),d.getDate()),-dow))}
+function seasonNow(){
+  const t=today(),m=t.getMonth();
+  const name=m>=2&&m<=4?"spring":m>=5&&m<=7?"summer":m>=8&&m<=10?"fall":"winter";
+  const y=m<2?t.getFullYear()-1:t.getFullYear();
+  return{name:name,key:y+"-"+name};
+}
+
+/* ---------- state ---------- */
+function defDates(){return[{id:uid(),t:"Our anniversary",d:"",w:3},{id:uid(),t:"Wife's birthday",d:"",w:3},{id:uid(),t:"Daughter's birthday",d:"",w:3}]}
+function fresh(){
+  return{v:VERSION,at:0,dates:defDates(),log:[],checkins:[],updates:[],decisions:[],reviews:{},season:{},wins:"",focus:"",
+   contacts:["Plumber","Electrician","Furnace / HVAC","Vet","Pediatrician","Dentist","Daughter's school office"].map(r=>({n:"",r:r,p:""})),
+   facts:["Furnace filter size","Furnace model","Water shutoff location","Breaker panel location","Car oil type and filter","Pet food brand and meds","Daughter's clothing and shoe sizes"].map(k=>({k:k,v:""})),
+   set:{day:6,cap:7,hideInstall:false},fun:{planned:{}},
+   a:AREAS.map(a=>({scope:a.scope,done:a.done,plan:"",ideas:[],arch:[],up:a.up.map(u=>mkItem(u[0],u[1],u[2],sdate(u[3]),true))}))};
+}
+function migrate(s){
+  if(!s||!Array.isArray(s.a)||s.a.length!==AREAS.length)return fresh();
+  const f=fresh();
+  ["dates","log","checkins","updates","decisions","contacts","facts"].forEach(k=>{if(!Array.isArray(s[k]))s[k]=f[k]});
+  ["reviews","season"].forEach(k=>{if(!s[k]||typeof s[k]!=="object")s[k]={}});
+  s.wins=s.wins||"";s.focus=s.focus||"";
+  if(!s.fun||typeof s.fun!=="object")s.fun={planned:{}};
+  if(!s.fun.planned)s.fun.planned={};
+  s.set=Object.assign({day:6,cap:7,hideInstall:false},s.set||{});
+  s.dates.forEach(x=>{x.id=x.id||uid();x.w=x.w==null?3:x.w;x.d=x.d||""});
+  s.a.forEach(d=>{
+    d.ideas=d.ideas||[];d.arch=d.arch||[];d.up=d.up||[];d.plan=d.plan||"";
+    d.up.concat(d.arch).forEach(u=>{u.id=u.id||uid();u.unit=u.unit||"m";u.h=u.h||"";u.n=u.n||"";u.last=u.last||"";u.d=u.d||"";u.every=+u.every||0});
+  });
+  if(!s.v||s.v<3){
+    s.a[3].up=s.a[3].up.filter(u=>!(/^Birthday and anniversary/.test(u.t)&&!u.d&&!u.last));
+    AREAS.forEach((a,i)=>a.up.forEach(def=>{
+      const has=s.a[i].up.concat(s.a[i].arch).some(u=>u.t===def[0]);
+      if(def[4]&&!has)s.a[i].up.push(mkItem(def[0],def[1],def[2],sdate(def[3]),true));
+    }));
+    s.a.forEach((d,i)=>d.up.forEach(u=>{
+      if(due(u))return;
+      const def=AREAS[i].up.find(x=>x[0]===u.t);
+      if(def){u.d=sdate(def[3]);u.st=true}
+    }));
+    s.v=3;
+  }
+  return s;
+}
+let S;
+try{S=migrate(JSON.parse(localStorage.getItem(KEY)))}catch(e){S=fresh()}
+
+let DB=null,UIDV=null,SYNC="Saved on this device.",saveT=null;
+function persist(){
+  S.at=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  if(DB&&UIDV){
+    clearTimeout(saveT);
+    saveT=setTimeout(function(){
+      DB.collection("data/users/"+UIDV).doc("state").set({json:JSON.stringify(S),at:S.at}).then(function(){setSync("Saved on this device and to your Claude account.")}).catch(function(){setSync("Saved on this device. Account sync failed.")});
+    },700);
+  }
+}
+function setSync(m){SYNC=m;const el=$("#sync");if(el)el.textContent=m}
+
+/* ---------- derived data ---------- */
+function dueItems(lo,hi){
+  const out=[];
+  S.a.forEach((d,i)=>d.up.forEach(u=>{const ds=due(u);if(!ds)return;const n=days(ds);if(n>=lo&&n<=hi)out.push({i:i,u:u,ds:ds,n:n})}));
+  out.sort((a,b)=>a.n-b.n||a.i-b.i);
+  return out;
+}
+function proStats(from,to){
+  const L=S.log.filter(l=>l.on>=from&&(!to||l.on<=to));
+  const p=L.filter(l=>l.pro!==false).length;
+  return{total:L.length,pro:p,pct:L.length?Math.round(100*p/L.length):null};
+}
+function streak(){
+  const set=new Set(S.checkins);
+  let c=parse(weekKey(today()));
+  if(!set.has(fmt(c)))c=addDays(c,-7);
+  let n=0;
+  while(set.has(fmt(c))){n++;c=addDays(c,-7)}
+  return n;
+}
+function checkinDue(){return((today().getDay()+6)%7)>=S.set.day&&!S.checkins.includes(weekKey(today()))}
+function reviewTarget(){
+  const t=today();
+  const d=t.getDate()<=7?new Date(t.getFullYear(),t.getMonth()-1,1):new Date(t.getFullYear(),t.getMonth(),1);
+  return{key:d.getFullYear()+"-"+pad(d.getMonth()+1),from:fmt(d),to:fmt(new Date(d.getFullYear(),d.getMonth()+1,0)),label:d.toLocaleDateString(undefined,{month:"long"}),early:t.getDate()<=7};
+}
+function revObj(key){return S.reviews[key]||(S.reviews[key]={slip:"",chg:"",done:false})}
+
+/* ---------- UI state ---------- */
+let TAB="today",CI=null,LAST=null,PENDING=null,QA=null,PL=null,toastT=null;
+const FUNF={when:"month",where:"all",kind:"all"};
+const OPEN={},ARMED={};
+const UA=navigator.userAgent||"";
+const IS_IOS=/iPad|iPhone|iPod/.test(UA)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const STANDALONE=!!(navigator.standalone||(window.matchMedia&&matchMedia("(display-mode: standalone)").matches));
+
+/* ---------- views ---------- */
+function rowHtml(x){
+  const a=AREAS[x.i],r=rel(x.ds);
+  return `<div class="row" style="--c:${a.c}"><div><div class="t">${esc(x.u.t)}</div><small>${esc(a.name)}: ${nice(x.ds)}, <span class="${r.o?"over":""}">${r.t.toLowerCase()}</span>${x.u.st?" (starter date)":""}</small>${x.u.h?`<small class="heads">Heads-up for her: ${esc(x.u.h)}</small>`:""}</div><button class="btn done" style="--c:${a.c}" data-a="done" data-i="${x.i}" data-id="${x.u.id}" aria-label="Mark done: ${esc(x.u.t)}">Done</button></div>`;
+}
+function listHtml(items,empty){return items.length?items.map(rowHtml).join(""):`<p class="sub">${empty}</p>`}
+
+function banners(){
+  let h="";
+  if(IS_IOS&&!STANDALONE&&!S.set.hideInstall){
+    h+=`<section class="panel note"><h3>Keep this on your Home Screen</h3><p class="sub">It opens full screen like an app, one tap from your Home Screen.</p><div class="rowb"><button class="btn" data-a="tab" data-t="more" data-go="install">Show me how</button><button class="btn ghost" data-a="hideinstall">Hide this</button></div></section>`;
+  }
+  if(checkinDue()){
+    h+=`<section class="panel alert"><h3>Weekly check-in is ready</h3><p class="sub">Ten minutes now keeps the whole week under control.</p><button class="btn" data-a="cistart">Start check-in</button></section>`;
+  }
+  const rt=reviewTarget();
+  if(rt.early&&!(S.reviews[rt.key]&&S.reviews[rt.key].done)){
+    h+=`<section class="panel note"><h3>Monthly review for ${esc(rt.label)}</h3><p class="sub">Five minutes: what slipped, and one thing to change.</p><button class="btn" data-a="revgo">Start review</button></section>`;
+  }
+  const miss=S.dates.filter(x=>!x.d).length;
+  if(miss){
+    h+=`<section class="panel"><h3>${plural(miss,"important date")} missing</h3><p class="sub">Add the real dates so birthdays and anniversaries never sneak up on you.</p><button class="btn ghost" data-a="tab" data-t="areas">Add dates</button></section>`;
+  }
+  return h;
+}
+function seasonPanel(){
+  const s=seasonNow(),list=SEASONS[s.name],done=S.season[s.key]||{};
+  const n=list.filter((x,k)=>done["i"+k]).length;
+  return `<details class="panel" data-o="season"${OPEN.season?" open":""}><summary>${cap1(s.name)} home prep <span class="hint">${n} of ${list.length} done</span></summary>`+
+    list.map((x,k)=>`<label class="chk"><input type="checkbox" data-f="season" data-sk="${s.key}" data-si="i${k}"${done["i"+k]?" checked":""}><span>${esc(x)}</span></label>`).join("")+`</details>`;
+}
+function viewToday(){
+  const t=today(),ov=dueItems(-99999,-1),wk=dueItems(0,7),lat=dueItems(8,30);
+  const ps=proStats(fmt(addDays(t,-30))),st=streak();
+  let h=`<h1>Today</h1><p class="sub">${esc(longDate(t))}</p>`+banners();
+  h+=`<div class="stats">
+    <div class="stat${ov.length?" bad":""}"><b>${ov.length}</b><span>Overdue</span></div>
+    <div class="stat"><b>${wk.length}</b><span>Due in the next 7 days</span></div>
+    <div class="stat"><b>${ps.pct==null?"&ndash;":ps.pct+"%"}</b><span>Handled before she asked (30 days)</span></div>
+    <div class="stat"><b>${st}</b><span>${st===1?"Week":"Weeks"} of check-ins in a row</span></div></div>`;
+  h+=`<section class="panel"><h3>Needs attention</h3>${listHtml(ov.concat(wk),"Nothing due in the next 7 days. Tap + to add something you've noticed.")}</section>`;
+  const dts=S.dates.map(x=>({x:x,i:dateInfo(x)})).filter(r=>r.i&&r.i.plan);
+  if(dts.length){
+    h+=`<section class="panel alert"><h3>Dates to plan for</h3>`+dts.map(r=>`<p style="margin:6px 0"><b>${esc(r.x.t)}</b>: ${nice(r.i.o)}, ${r.i.n===0?"today":"in "+plural(r.i.n,"day")}. Time to plan.</p>`).join("")+`</section>`;
+  }
+  const dec=S.decisions.filter(d=>!d.res&&d.q.trim());
+  if(dec.length){
+    h+=`<section class="panel"><h3>Waiting on her</h3>`+dec.map(d=>`<p style="margin:6px 0">${esc(d.q)}${d.rec?`<br><small class="sub">My pick: ${esc(d.rec)}</small>`:""}</p>`).join("")+`<button class="btn ghost sm" data-a="tab" data-t="checkin">Manage</button></section>`;
+  }
+  h+=funTodayPanel();
+  h+=seasonPanel();
+  h+=`<section class="panel"><h3>Coming up in the next 30 days</h3>${listHtml(lat,"Nothing dated between 8 and 30 days out.")}</section>`;
+  const rec=S.log.slice(0,5);
+  h+=`<section class="panel"><h3>Recently handled</h3>`+(rec.length?rec.map(l=>`<div class="r3" style="margin:4px 0"><span>${esc(l.t)}<br><small class="sub">${esc(l.a)}, ${nice(l.on)}${l.pro===false?", she reminded me":""}</small></span><button class="btn ghost sm" data-a="flip" data-id="${l.id}">${l.pro===false?"I got there first":"She reminded me"}</button></div>`).join(""):`<p class="sub">Tap Done on an item and it shows up here.</p>`)+`</section>`;
+  return h;
+}
+
+function datesPanel(){
+  return `<section class="panel"><h3>Important dates</h3><p class="sub">These repeat every year. You get a reminder inside your planning window.</p>`+
+  S.dates.map((x,k)=>{
+    const inf=dateInfo(x);
+    const st=inf?`${nice(inf.o)}: ${inf.n===0?"today":"in "+plural(inf.n,"day")}${inf.plan?". Time to plan.":""}`:"Set a date";
+    return `<div class="item"><div class="r1"><input type="text" aria-label="Event name" value="${esc(x.t)}" data-f="dtn" data-k="${k}"><button class="x" data-a="dx" data-k="${k}" aria-label="Remove ${esc(x.t)}">&times;</button></div>
+    <div class="r2"><label>Date (the year doesn't matter)<input type="date" value="${esc(x.d)}" data-f="dtd" data-k="${k}"></label><label>Start planning, weeks ahead<input type="number" min="0" max="26" inputmode="numeric" value="${esc(x.w)}" data-f="dtw" data-k="${k}"></label></div>
+    <div class="r3"><span class="due ${inf&&inf.plan?"over":""}">${st}</span></div></div>`;
+  }).join("")+
+  `<div class="add"><input type="text" id="nd" placeholder="Add a date, like Mother's Day" aria-label="New important date" maxlength="60"><button data-a="dadd">Add</button></div></section>`;
+}
+function itemHtml(i,u){
+  const ds=due(u),r=rel(ds),rep=u.every>0,comp=rep&&u.last,a=AREAS[i];
+  return `<div class="item"><div class="r1"><input type="text" aria-label="Reminder" value="${esc(u.t)}" data-f="ut" data-i="${i}" data-id="${u.id}"><button class="x" data-a="arch" data-i="${i}" data-id="${u.id}" aria-label="Archive ${esc(u.t)}">&times;</button></div>
+  <div class="r2"><label>Last done<input type="date" value="${esc(u.last)}" data-f="last" data-i="${i}" data-id="${u.id}"></label>
+  <label class="wide">Repeats every (0 is once)<span class="inl"><input type="number" min="0" max="60" inputmode="numeric" value="${esc(u.every)}" data-f="every" data-i="${i}" data-id="${u.id}"><select data-f="unit" data-i="${i}" data-id="${u.id}" aria-label="Repeat unit"><option value="d"${u.unit==="d"?" selected":""}>days</option><option value="w"${u.unit==="w"?" selected":""}>weeks</option><option value="m"${(u.unit||"m")==="m"?" selected":""}>months</option></select></span></label>
+  ${comp?"":`<label>${rep?"First due date":"Due date"}<input type="date" value="${esc(u.d)}" data-f="d" data-i="${i}" data-id="${u.id}"></label>`}</div>
+  <div class="r3"><span class="due ${r.o?"over":""}">${comp?"Next: "+nice(ds)+". ":""}${r.t}${u.st?". Starter date, set the real one.":""}</span><button class="btn done sm" style="--c:${a.c}" data-a="done" data-i="${i}" data-id="${u.id}">Done</button></div>
+  <details class="more" data-o="m-${u.id}"${OPEN["m-"+u.id]?" open":""}><summary>Heads-up and notes${u.h||u.n?" (filled in)":""}</summary>
+  <label class="t">Heads-up for her (one line she should know)</label><input type="text" value="${esc(u.h)}" data-f="uh" data-i="${i}" data-id="${u.id}" maxlength="120">
+  <label class="t">Notes: model numbers, who to call, account numbers</label><textarea data-f="un" data-i="${i}" data-id="${u.id}">${esc(u.n)}</textarea></details></div>`;
+}
+function ideasHtml(i){
+  const a=AREAS[i],d=S.a[i];
+  let h=`<label class="t">${esc(a.il)}</label>`;
+  d.ideas.forEach((x,k)=>{
+    h+=`<div class="item"><div class="r1"><input type="text" aria-label="Note" value="${esc(x.t)}" data-f="ide" data-i="${i}" data-k="${k}"><button class="x" data-a="idx" data-i="${i}" data-k="${k}" aria-label="Remove note">&times;</button></div>`+
+    (a.tags?`<div class="r2"><label>Type<select data-f="itag" data-i="${i}" data-k="${k}">${a.tags.map(g=>`<option${g===x.tag?" selected":""}>${esc(g)}</option>`).join("")}</select></label></div>`:"")+`</div>`;
+  });
+  h+=`<div class="add" style="--c:${a.c}"><input type="text" id="idn${i}" placeholder="Add a note" aria-label="Add a note to ${esc(a.name)}" maxlength="120">${a.tags?`<select id="idg${i}" aria-label="Type">${a.tags.map(g=>`<option>${esc(g)}</option>`).join("")}</select>`:""}<button data-a="idadd" data-i="${i}">Add</button></div>`;
+  return h;
+}
+function areaCard(i){
+  const a=AREAS[i],d=S.a[i],k="area-"+i;
+  const ov=d.up.filter(u=>{const s=due(u);return s&&days(s)<0}).length;
+  const atCap=d.up.length>S.set.cap;
+  return `<details class="card" style="--c:${a.c}" data-o="${k}"${OPEN[k]?" open":""}><summary><span>${esc(a.name)}</span><span class="chip${ov?" bad":""}">${ov?ov+" overdue":d.up.length+" active"}</span></summary><div class="body">
+  <label class="t">What I own</label><textarea data-f="scope" data-i="${i}">${esc(d.scope)}</textarea>
+  <label class="t">What "handled" looks like</label><textarea data-f="done" data-i="${i}">${esc(d.done)}</textarea>
+  <label class="t">Coming up${atCap?" (over your cap of "+S.set.cap+", consider archiving)":""}</label>
+  ${d.up.map(u=>itemHtml(i,u)).join("")||`<p class="sub">Nothing here yet.</p>`}
+  <div class="add" style="--c:${a.c}"><input type="text" id="n${i}" placeholder="Add a reminder" aria-label="Add a reminder to ${esc(a.name)}" maxlength="90"><button data-a="add" data-i="${i}">Add</button></div>
+  ${ideasHtml(i)}
+  <label class="t">My plan to bring her</label><textarea data-f="plan" data-i="${i}" placeholder="What I'll handle and when">${esc(d.plan)}</textarea>
+  <details class="more" data-o="arch-${i}"${OPEN["arch-"+i]?" open":""}><summary>Archived (${d.arch.length})</summary>
+  ${d.arch.map(u=>`<div class="r3" style="margin:6px 0"><span>${esc(u.t)}${u.doneOn?`<br><small class="sub">Done ${nice(u.doneOn)}</small>`:""}</span><span><button class="btn ghost sm" data-a="restore" data-i="${i}" data-id="${u.id}">Restore</button> <button class="btn ghost sm" data-a="delf" data-i="${i}" data-id="${u.id}">Delete</button></span></div>`).join("")||`<p class="sub">Finished one-time items land here.</p>`}</details>
+  </div></details>`;
+}
+function viewAreas(){
+  return `<h1>Areas</h1><p class="sub">What you own and what's coming. Keep each area to about ${S.set.cap} active items.</p>`+datesPanel()+AREAS.map((a,i)=>areaCard(i)).join("");
+}
+
+/* ----- check-in ----- */
+function updateData(){
+  const t=today(),from=fmt(addDays(t,-6));
+  const handled=S.log.filter(l=>l.on>=from).map(l=>l.t+" ("+l.a+")");
+  (S.wins||"").split("\n").map(s=>s.trim()).filter(Boolean).forEach(w=>handled.push(w));
+  const coming=dueItems(-99999,14).map(x=>({text:nice(x.ds)+": "+x.u.t+" ("+AREAS[x.i].name+")"+(x.n<0?", overdue, handling it":""),h:x.u.h}));
+  const dates=S.dates.filter(x=>{const f=dateInfo(x);return f&&f.plan}).map(x=>x.t+" on "+nice(dateInfo(x).o));
+  const decisions=S.decisions.filter(d=>!d.res&&d.q.trim()).map(d=>({q:d.q.trim(),rec:(d.rec||"").trim()}));
+  const plans=[];S.a.forEach((d,i)=>{if(d.plan&&d.plan.trim())plans.push(AREAS[i].name+": "+d.plan.trim())});
+  return{handled:handled,coming:coming,dates:dates,decisions:decisions,plans:plans,focus:(S.focus||"").trim()};
+}
+function buildUpdate(){
+  const u=updateData(),L=["Weekly update, "+nice(fmt(today())),""];
+  L.push("Handled this week:");
+  if(u.handled.length)u.handled.forEach(x=>L.push("- "+x));else L.push("- Nothing logged yet");
+  L.push("","Coming up in the next two weeks:");
+  if(u.coming.length)u.coming.forEach(x=>L.push("- "+x.text+(x.h?". Heads-up: "+x.h:"")));else L.push("- Nothing dated yet");
+  if(u.decisions.length){L.push("","Need your call:");u.decisions.forEach(d=>L.push("- "+d.q+(d.rec?" My pick: "+d.rec:"")))}
+  if(u.dates.length){L.push("","Dates I'm planning for:");u.dates.forEach(x=>L.push("- "+x))}
+  if(u.plans.length){L.push("","My plans:");u.plans.forEach(x=>L.push("- "+x))}
+  if(u.focus)L.push("","Next week's focus:",u.focus);
+  return L.join("\n");
+}
+function herView(){
+  const u=updateData();
+  const ul=a=>a.length?`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="sub" style="margin:0">Nothing yet.</p>`;
+  return `<section class="panel"><h3>Her view</h3><p class="sub">A clean summary to show her or screenshot. It uses what you've logged.</p><div class="her">
+  <h4>Handled this week</h4>${ul(u.handled)}
+  <h4>Coming up in the next two weeks</h4>${ul(u.coming.map(x=>x.text+(x.h?". Heads-up: "+x.h:"")))}
+  ${u.decisions.length?`<h4>Needs your call</h4>${ul(u.decisions.map(d=>d.q+(d.rec?" My pick: "+d.rec:"")))}`:""}
+  ${u.dates.length?`<h4>Dates I'm planning for</h4>${ul(u.dates)}`:""}
+  ${u.focus?`<h4>Next week's focus</h4><p style="margin:0">${esc(u.focus)}</p>`:""}</div>
+  <div class="rowb"><button class="btn" data-a="hershare">Share</button><button class="btn ghost" data-a="hercopy">Copy as text</button></div></section>`;
+}
+function decisionsHtml(){
+  return `<section class="panel"><h3>Waiting on her</h3><p class="sub">Write the question and your recommended answer, so she only has to say yes.</p>`+
+  (S.decisions.map((d,k)=>`<div class="item"><div class="r1"><input type="text" aria-label="Question" value="${esc(d.q)}" data-f="dq" data-k="${k}"${d.res?' style="text-decoration:line-through"':""}><button class="x" data-a="decdel" data-k="${k}" aria-label="Remove question">&times;</button></div>
+  <div class="r2" style="grid-template-columns:1fr"><label>My recommendation<input type="text" value="${esc(d.rec)}" data-f="dr" data-k="${k}"></label></div>
+  <div class="r3"><span class="due">${d.res?"Decided":"Waiting"}</span><button class="btn ghost sm" data-a="decres" data-k="${k}">${d.res?"Reopen":"She decided"}</button></div></div>`).join("")||`<p class="sub">Nothing waiting on her.</p>`)+
+  `<div class="add"><input type="text" id="dqn" placeholder="Question, like: Book the sitter for Friday?" aria-label="New question" maxlength="120"><button data-a="decadd">Add</button></div><div class="add" style="margin-top:6px"><input type="text" id="drn" placeholder="My recommendation (optional)" aria-label="Recommendation" maxlength="120"></div></section>`;
+}
+function stepBody(n){
+  if(n===0){const ov=dueItems(-99999,-1);return `<p class="sub">Clear these first. Tap Done on anything already handled.</p>`+listHtml(ov,"Nothing overdue. Nice work.")}
+  if(n===1){return `<p class="sub">What's due in the next 7 days. Add a heads-up in Areas for anything she should know.</p>`+listHtml(dueItems(0,7),"Nothing due this week.")}
+  if(n===2){
+    const dts=S.dates.map(x=>({x:x,i:dateInfo(x)})).filter(r=>r.i&&r.i.plan);
+    return `<h3>Dates</h3>`+(dts.length?dts.map(r=>`<p style="margin:6px 0"><b>${esc(r.x.t)}</b>: ${nice(r.i.o)}, in ${plural(r.i.n,"day")}</p>`).join(""):`<p class="sub">No dates inside their planning window.</p>`)+`<div style="margin-top:14px"></div>`+decisionsHtml();
+  }
+  if(n===3){
+    const L=S.log.filter(l=>l.on>=fmt(addDays(today(),-6)));
+    return `<h3>Wins logged this week</h3>`+(L.length?`<ul>${L.map(l=>`<li>${esc(l.t)}</li>`).join("")}</ul>`:`<p class="sub">Nothing logged by Done taps.</p>`)+
+    `<label class="t">Other wins (one per line)</label><textarea data-f="wins" placeholder="Fixed the porch light&#10;Booked the dentist">${esc(S.wins)}</textarea>
+    <label class="t">Next week's focus</label><textarea data-f="focus" placeholder="The one or two things that matter most">${esc(S.focus)}</textarea>
+    <h3 style="margin-top:14px">My plans</h3>`+AREAS.map((a,i)=>`<label class="t">${esc(a.name)}</label><textarea data-f="plan" data-i="${i}">${esc(S.a[i].plan)}</textarea>`).join("");
+  }
+  return `<p class="sub">Edit anything, then send it to her. Finishing saves it to your history and counts toward your streak.</p><textarea data-f="cit" style="min-height:260px">${esc(CI.text)}</textarea>
+  <div class="rowb"><button class="btn" data-a="cishare">Share</button><button class="btn ghost" data-a="cicopy">Copy</button><button class="btn ghost" data-a="cigen">Regenerate</button></div>`;
+}
+function stepper(){
+  const n=CI.step,last=n===STEPS.length-1;
+  return `<section class="panel"><div class="prog">${STEPS.map((s,k)=>`<i class="${k<=n?"on":""}"></i>`).join("")}</div><h3>Step ${n+1} of ${STEPS.length}: ${STEPS[n]}</h3>${stepBody(n)}
+  <div class="rowb"><button class="btn ghost" data-a="ciback">${n===0?"Close":"Back"}</button>${last?`<button class="btn done" data-a="cifinish">Finish check-in</button>`:`<button class="btn" data-a="cinext">Next</button>`}</div></section>`;
+}
+function historyPanel(){
+  if(!S.updates.length)return"";
+  return `<section class="panel"><h3>Past updates</h3>`+S.updates.slice(0,10).map((u,k)=>`<details class="more" data-o="h-${k}"${OPEN["h-"+k]?" open":""}><summary>${nice(u.on)}</summary><pre class="msg">${esc(u.text)}</pre><div class="rowb"><button class="btn ghost sm" data-a="histcopy" data-k="${k}">Copy</button><button class="btn ghost sm" data-a="histdel" data-k="${k}">Delete</button></div></details>`).join("")+`</section>`;
+}
+function reviewPanel(){
+  const rt=reviewTarget(),r=revObj(rt.key),ps=proStats(rt.from,rt.to);
+  const ov=dueItems(-99999,-1);
+  return `<section class="panel" id="review"><h3>Monthly review: ${esc(rt.label)}</h3>
+  <p class="sub">Handled ${ps.total} ${ps.total===1?"item":"items"}${ps.pct==null?"":", "+ps.pct+"% before she asked"}. ${ov.length?plural(ov.length,"item")+" overdue right now.":"Nothing overdue right now."}</p>
+  ${ov.length?`<ul>${ov.slice(0,6).map(x=>`<li>${esc(x.u.t)} (${esc(AREAS[x.i].name)})</li>`).join("")}</ul>`:""}
+  <label class="t">What slipped, and why</label><textarea data-f="rslip" data-m="${rt.key}">${esc(r.slip)}</textarea>
+  <label class="t">One thing I'll change</label><textarea data-f="rchg" data-m="${rt.key}">${esc(r.chg)}</textarea>
+  <div class="rowb"><button class="btn" data-a="revsave" data-m="${rt.key}">${r.done?"Update review":"Save review"}</button></div></section>`;
+}
+function viewCheckin(){
+  const st=streak(),done=S.checkins.includes(weekKey(today()));
+  let h=`<h1>Check-in</h1><p class="sub">Ten minutes, same day every week.</p>`;
+  h+=`<section class="panel"><h3>${plural(st,"week")} in a row</h3><p class="sub">${done?"This week's check-in is done.":"Not done yet this week."} Your check-in day is ${DAYS[S.set.day]}.</p>${CI?"":`<button class="btn" data-a="cistart">Start this week's check-in</button>`}</section>`;
+  if(CI)return h+stepper();
+  return h+decisionsHtml()+herView()+historyPanel()+reviewPanel();
+}
+
+
+/* ----- family fun ----- */
+function findEv(id){return EVENTS.concat(IDEAS).find(e=>e.id===id)}
+function evList(ev){if(ev.dates)return ev.dates.slice().sort();if(ev.s)return[ev.s,ev.e||ev.s];if(ev.e)return[ev.e];return[]}
+function evEnd(ev){const l=evList(ev);return l[l.length-1]}
+function evNext(ev){
+  if(ev.any)return null;
+  if(ev.dates)return ev.dates.slice().sort().find(d=>days(d)>=0)||null;
+  const e=evEnd(ev);if(!e||days(e)<0)return null;
+  return ev.s&&days(ev.s)>0?ev.s:fmt(today());
+}
+function evGroup(ev){
+  const range=!ev.dates&&((ev.s&&ev.e&&ev.e!==ev.s)||(!ev.s&&ev.e));
+  if(range&&(!ev.s||days(ev.s)<=0))return 0;
+  const n=days(evNext(ev));
+  return n<=7?1:n<=21?2:3;
+}
+function evDateText(ev){
+  if(ev.any)return"Anytime";
+  let t;
+  const w=d=>parse(d).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
+  if(ev.dt)t=ev.dt;
+  else if(ev.dates)t=ev.dates.slice().sort().map(nice).join(", ");
+  else if(ev.e&&ev.s&&ev.e!==ev.s)t=nice(ev.s)+" to "+nice(ev.e);
+  else t=w(ev.s);
+  return t+(ev.tm?", "+ev.tm:"");
+}
+function funList(when,where){
+  return EVENTS.filter(ev=>{
+    const nx=evNext(ev);if(!nx)return false;
+    if(where&&where!=="all"&&ev.area!==where)return false;
+    const g=evGroup(ev),n=days(nx);
+    if(when==="week")return g<=1;
+    if(when==="month")return g===0||n<=30;
+    return true;
+  }).sort((a,b)=>evGroup(a)-evGroup(b)||days(evNext(a))-days(evNext(b))||a.t.localeCompare(b.t));
+}
+function eventCard(ev){
+  const pl=S.fun.planned[ev.id];
+  return `<div class="ev"><div class="evh"><b>${esc(ev.t)}</b>${pl?`<span class="chip">Planned ${nice(pl)}</span>`:""}</div>
+  <div class="due">${esc(evDateText(ev))}</div>
+  <div class="due">${esc(ev.pl)}${ev.town?", "+esc(ev.town):""}</div>
+  <p class="evd">${esc(ev.d)}</p>
+  ${ev.cost?`<p class="evd"><b>Cost:</b> ${esc(ev.cost)}</p>`:""}
+  ${ev.note?`<p class="evd note">${esc(ev.note)}</p>`:""}
+  <div class="rowb"><button class="btn done sm" data-a="fplan" data-id="${ev.id}">${pl?"Change plan":"Plan it"}</button>${ev.u?`<a class="btn ghost sm" href="${esc(ev.u)}" target="_blank" rel="noopener noreferrer">Details</a>`:""}</div></div>`;
+}
+function funTodayPanel(){
+  const l=funList("week").sort((a,b)=>(evGroup(a)===1?0:1)-(evGroup(b)===1?0:1)||days(evNext(a))-days(evNext(b))).slice(0,3);
+  if(!l.length)return"";
+  return `<section class="panel"><h3>Fun this week</h3>`+l.map(ev=>`<div class="r3" style="margin:8px 0"><span><b>${esc(ev.t)}</b><br><small class="sub">${esc(evDateText(ev))}, ${esc(ev.town||ev.pl)}</small></span><button class="btn ghost sm" data-a="fplan" data-id="${ev.id}">Plan it</button></div>`).join("")+`<button class="btn ghost sm" data-a="tab" data-t="fun">See all family fun</button></section>`;
+}
+function viewFun(){
+  const age=-days(FUN_UPDATED),kind=FUNF.kind;
+  const homeIdeas=IDEAS.filter(i=>i.k==="home"),outIdeas=IDEAS.filter(i=>i.k!=="home");
+  let h=`<h1>Family fun</h1><p class="sub">${kind==="home"?"Things to do together without leaving the house.":"Southeastern Wisconsin. List updated "+nice(FUN_UPDATED)+". Times and dates change, so tap Details to confirm before you go."}</p>`;
+  h+=`<div class="seg three" role="group" aria-label="Category" style="margin-bottom:12px">`+[["all","All"],["out","Out and about"],["home","At home"]].map(x=>`<button data-a="funkind" data-v="${x[0]}" aria-pressed="${kind===x[0]}">${x[1]}</button>`).join("")+`</div>`;
+  if(kind==="home"){
+    h+=`<section class="panel"><h3>At home</h3>${homeIdeas.map(eventCard).join("")}</section>`;
+    return h;
+  }
+  if(age>35)h+=`<section class="panel alert"><h3>This list is getting old</h3><p class="sub">It was last updated ${age} days ago. Ask Claude to refresh it.</p></section>`;
+  h+=`<section class="panel"><div class="r2"><label>When<select data-f="funwhen"><option value="week"${FUNF.when==="week"?" selected":""}>Next 7 days</option><option value="month"${FUNF.when==="month"?" selected":""}>Next 30 days</option><option value="all"${FUNF.when==="all"?" selected":""}>Everything</option></select></label>
+  <label>Where<select data-f="funwhere"><option value="all">Anywhere</option>${FUN_AREAS.map(a=>`<option${FUNF.where===a?" selected":""}>${a}</option>`).join("")}</select></label></div></section>`;
+  const list=funList(FUNF.when,FUNF.where);
+  h+=`<section class="panel">`;
+  if(!list.length)h+=`<p class="sub">Nothing matches. Try "Everything" or "Anywhere".</p>`;
+  [1,0,2,3].forEach(gi=>{
+    const items=list.filter(ev=>evGroup(ev)===gi);
+    if(items.length)h+=`<h4 class="grp">${GROUPS[gi]}</h4>`+items.map(eventCard).join("");
+  });
+  h+=`</section>`;
+  if(kind==="all")h+=`<details class="panel" data-o="ideas-home"${OPEN["ideas-home"]?" open":""}><summary>Ideas at home <span class="hint">${homeIdeas.length} ideas</span></summary>${homeIdeas.map(eventCard).join("")}</details>`;
+  h+=`<details class="panel" data-o="ideas"${OPEN.ideas?" open":""}><summary>Anytime ideas out and about <span class="hint">no date needed</span></summary>${outIdeas.map(eventCard).join("")}</details>`;
+  h+=`<section class="panel note"><h3>Keeping this list fresh</h3><p class="sub">It doesn't update by itself. Once a month, ask Claude: "Update the Fun tab for the next month." It re-checks local sources and gives you a new file to upload to GitHub.</p></section>`;
+  return h;
+}
+
+/* plan sheet */
+function planDefault(ev){
+  if(ev.any){const t=today();return fmt(addDays(t,(6-t.getDay()+7)%7))}
+  if(ev.dates)return evNext(ev);
+  const s=evNext(ev),e=ev.e||ev.s;
+  if(!e||s===e)return s;
+  const d=addDays(parse(s),(6-parse(s).getDay()+7)%7);
+  return fmt(d)<=e?fmt(d):s;
+}
+function drawPlan(){
+  const el=$("#sheet"),ev=findEv(PL.id);
+  const l=evList(ev),min=ev.any?fmt(today()):(fmt(today())>l[0]?fmt(today()):l[0]),max=ev.any?"":l[l.length-1];
+  el.innerHTML=`<div role="dialog" aria-modal="true" aria-label="Plan it"><h3>${esc(ev.t)}</h3><p class="sub">${esc(evDateText(ev))}<br>${esc(ev.pl)}${ev.town?", "+esc(ev.town):""}</p>
+  <label class="t" for="pl-d">Which day are you going?</label><input type="date" id="pl-d" value="${esc(PL.date)}" min="${esc(min)}"${max?` max="${esc(max)}"`:""}>
+  <div class="rowb" style="flex-direction:column;align-items:stretch"><button class="btn" data-a="fladd">Add to my Today list</button><button class="btn ghost" data-a="flics">Calendar file (.ics)</button><button class="btn ghost" data-a="flg">Google Calendar</button><button class="btn ghost" data-a="flclose">Close</button></div>
+  <p class="sub" id="plmsg" style="margin-top:10px"></p></div>`;
+  el.hidden=false;
+}
+function plDate(){const i=$("#pl-d");return(i&&i.value)||PL.date}
+function evDesc(ev){return[ev.d,evDateText(ev),ev.cost?"Cost: "+ev.cost:"",ev.u].filter(Boolean).join("\n")}
+function evLoc(ev){return ev.pl+(ev.town?", "+ev.town+", WI":"")}
+function buildEventICS(ev,date){
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  const nd=fmt(addDays(parse(date),1));
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//House Overview//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","BEGIN:VEVENT","UID:"+ev.id+"-"+date+"@house-overview","DTSTAMP:"+stamp,"DTSTART;VALUE=DATE:"+date.replace(/-/g,""),"DTEND;VALUE=DATE:"+nd.replace(/-/g,""),"SUMMARY:"+icsEsc("Family fun: "+ev.t),"LOCATION:"+icsEsc(evLoc(ev)),"DESCRIPTION:"+icsEsc(evDesc(ev)),"BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+icsEsc(ev.t),"TRIGGER:-PT15H","END:VALARM","END:VEVENT","END:VCALENDAR"];
+  return L.map(fold).join("\r\n")+"\r\n";
+}
+
+/* ----- info ----- */
+function viewInfo(){
+  let h=`<button class="btn ghost sm" data-a="tab" data-t="more" style="margin-bottom:8px">Back to More</button><h1>Info</h1><p class="sub">The numbers and details you'd otherwise have to hunt for.</p><section class="panel"><h3>People to call</h3>`;
+  h+=S.contacts.map((c,k)=>{
+    const tel=(c.p||"").replace(/[^\d+]/g,"");
+    return `<div class="item"><div class="r1"><input type="text" aria-label="Name" placeholder="Name" value="${esc(c.n)}" data-f="cn" data-k="${k}"><button class="x" data-a="cdel" data-k="${k}" aria-label="Remove contact">&times;</button></div>
+    <div class="r2"><label>Role<input type="text" value="${esc(c.r)}" data-f="cr" data-k="${k}"></label><label>Phone<input type="tel" inputmode="tel" value="${esc(c.p)}" data-f="cp" data-k="${k}"></label></div>${tel?`<div class="rowb" style="margin-top:6px"><a class="btn ghost sm" href="tel:${esc(tel)}">Call ${esc(c.n||c.r)}</a></div>`:""}</div>`;
+  }).join("");
+  h+=`<div class="rowb"><button class="btn ghost" data-a="cadd">Add a contact</button></div></section><section class="panel"><h3>House and family facts</h3>`;
+  h+=S.facts.map((f,k)=>`<div class="item"><div class="r1"><input type="text" aria-label="Label" value="${esc(f.k)}" data-f="fk" data-k="${k}"><button class="x" data-a="fdel" data-k="${k}" aria-label="Remove fact">&times;</button></div><div class="r2" style="grid-template-columns:1fr"><input type="text" aria-label="Value" placeholder="Fill in" value="${esc(f.v)}" data-f="fv" data-k="${k}"></div></div>`).join("");
+  h+=`<div class="rowb"><button class="btn ghost" data-a="fadd">Add a fact</button></div></section>`;
+  return h;
+}
+
+/* ----- more ----- */
+function viewMore(){
+  return `<h1>More</h1><p class="sub">Home Screen setup, calendar, backup, and settings.</p>
+  <section class="panel note" id="install"><h3>Put it on your iPhone Home Screen</h3>
+  ${STANDALONE?`<p class="sub">You're already running it from the Home Screen.</p>`:""}
+  <ol class="steps">
+   <li>Open this page in <b>Safari</b> on your iPhone, not inside another app.</li>
+   <li>Tap the <b>Share</b> button, the square with an arrow pointing up, in the bottom toolbar.</li>
+   <li>Scroll the share sheet and tap <b>Add to Home Screen</b>. If you don't see it, scroll further down or tap Edit Actions.</li>
+   <li>Name it <b>House</b>, leave <b>Open as Web App</b> on if you see it, and tap <b>Add</b>.</li>
+   <li>Open it from the new Home Screen icon. It runs full screen, with no Safari bars.</li>
+   <li><b>Enter your data from the Home Screen icon</b>, not from Safari. The icon keeps its own separate storage, so anything typed in Safari first will not appear there.</li>
+   <li>When you've filled things in, come back here and tap <b>Save a backup</b> below.</li>
+  </ol>
+  <p class="sub">Tip: drag the icon to your first Home Screen page, next to Messages and Calendar, so it's where your thumb already goes.</p></section>
+  <section class="panel"><h3>People and house facts</h3><p class="sub">Plumber, vet, filter sizes, and the other details you'd otherwise hunt for.</p><button class="btn ghost" data-a="tab" data-t="info">Open Info</button></section>
+  <section class="panel"><h3>Make it a habit</h3><ul class="steps"><li>Open Today once a day, with your morning coffee. It shows only what needs you.</li><li>Do the check-in on ${DAYS[S.set.day]}, same time each week.</li><li>Check the Fun tab on Thursday and plan the weekend.</li><li>Add dated items to your calendar below so reminders come to you.</li><li>Tap + the moment she mentions something. Capturing it takes ten seconds.</li></ul></section>
+  <section class="panel"><h3>Add due dates to your calendar</h3><p class="sub">Creates one file with every dated item and your important dates. Reminders fire the morning before. Open the file to add them to Calendar.</p>
+  <button class="btn" data-a="ics">Create calendar file</button><p class="sub" id="icsmsg" style="margin-top:8px">If nothing happens, open this page in Safari instead of inside another app.</p></section>
+  <section class="panel"><h3>Backup and restore</h3><p class="sub">Your data lives in this browser. Save a backup so a cleared browser can't erase it.</p>
+  <div class="rowb"><button class="btn" data-a="bkfile">Save a backup</button><button class="btn ghost" data-a="bkcopy">Copy backup text</button></div>
+  <label class="t">Restore from a backup file</label><input type="file" id="bkin" accept=".json,application/json">
+  <label class="t">Or paste backup text</label><textarea id="bkpaste" placeholder="Paste backup text here"></textarea>
+  <div class="rowb"><button class="btn ghost" data-a="bkrestore">Restore from pasted text</button></div></section>
+  <section class="panel"><h3>Settings</h3><div class="r2"><label>Weekly check-in day<select data-f="sday">${DAYS.map((d,k)=>`<option value="${k}"${S.set.day===k?" selected":""}>${d}</option>`).join("")}</select></label>
+  <label>Active items per area (cap)<input type="number" min="3" max="20" inputmode="numeric" value="${S.set.cap}" data-f="scap"></label></div>
+  <div class="rowb"><button class="btn ghost" data-a="reset">Reset everything</button></div>
+  <p class="sync" id="sync" style="margin-top:12px">${esc(SYNC)}</p></section>`;
+}
+
+/* ---------- render ---------- */
+const VIEWS={today:viewToday,areas:viewAreas,checkin:viewCheckin,fun:viewFun,info:viewInfo,more:viewMore};
+function render(){
+  const y=window.scrollY;
+  $("#view").innerHTML=VIEWS[TAB]();
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-current",b.dataset.t===(TAB==="info"?"more":TAB)?"page":"false"));
+  window.scrollTo(0,y);
+}
+function go(tab){TAB=tab;render();window.scrollTo(0,0)}
+
+/* ---------- feedback ---------- */
+function toast(msg,actions){
+  const el=$("#toast");
+  el.innerHTML=`<span>${esc(msg)}</span>`+(actions||[]).map(a=>`<button data-a="${a[1]}">${esc(a[0])}</button>`).join("");
+  el.hidden=false;clearTimeout(toastT);
+  toastT=setTimeout(()=>{el.hidden=true},actions&&actions.length?8000:3200);
+}
+function armed(key,msg){
+  const n=Date.now();
+  if(ARMED[key]&&n-ARMED[key]<5000){delete ARMED[key];return true}
+  ARMED[key]=n;toast(msg);return false;
+}
+async function copyText(text){
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(text);return true}}catch(e){}
+  try{const ta=document.createElement("textarea");ta.value=text;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;left:0;opacity:0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,ta.value.length);const ok=document.execCommand("copy");ta.remove();return ok}catch(e){return false}
+}
+function shareText(text){
+  if(navigator.share){
+    return navigator.share({text:text}).catch(err=>{if(err&&err.name==="AbortError")return;return copyText(text).then(ok=>toast(ok?"Copied. Paste it into a message.":"Could not share or copy."))});
+  }
+  return copyText(text).then(ok=>toast(ok?"Copied. Paste it into a message.":"Could not copy."));
+}
+async function saveFile(name,mime,text){
+  const ext=name.split(".").pop();
+  try{
+    if(window.claude&&window.claude.use&&["json","txt","csv","md"].indexOf(ext)>-1){
+      const dl=await window.claude.use("downloads");
+      if(dl){await dl.save({filename:name,data:text});return"saved"}
+    }
+  }catch(e){if(e&&e.code==="declined")return"declined"}
+  try{
+    const f=new File([text],name,{type:mime});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:name});return"shared"}
+  }catch(e){if(e&&e.name==="AbortError")return"declined"}
+  try{
+    const b=new Blob([text],{type:mime}),url=URL.createObjectURL(b),a=document.createElement("a");
+    a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),4000);return"download";
+  }catch(e){return"failed"}
+}
+
+/* ---------- actions ---------- */
+function doDone(i,id){
+  const d=S.a[i],j=d.up.findIndex(u=>u.id===id);if(j<0)return;
+  const u=d.up[j],before=JSON.parse(JSON.stringify(u)),rec=u.every>0;
+  u.last=fmt(today());u.st=false;
+  if(rec){u.d=""}else{d.up.splice(j,1);d.arch.unshift(Object.assign({},u,{doneOn:fmt(today())}))}
+  S.log.unshift({id:uid(),t:u.t,a:AREAS[i].name,on:fmt(today()),pro:true});
+  S.log=S.log.slice(0,MAXLOG);
+  LAST={logId:S.log[0].id,i:i,j:j,before:before,rec:rec};
+  persist();render();
+  toast(rec?"Done. Next: "+nice(due(u)):"Done and archived",[["Undo","undo"],["She reminded me","remind"]]);
+}
+function undo(){
+  if(!LAST)return;
+  const L=LAST;LAST=null;
+  S.log=S.log.filter(l=>l.id!==L.logId);
+  const d=S.a[L.i];
+  if(L.rec){const u=d.up.find(x=>x.id===L.before.id);if(u)Object.assign(u,L.before)}
+  else{d.arch=d.arch.filter(x=>x.id!==L.before.id);d.up.splice(Math.min(L.j,d.up.length),0,L.before)}
+  persist();render();toast("Undone");
+}
+function tryAdd(i,item,force){
+  const d=S.a[i];
+  if(!force&&d.up.length>=S.set.cap){
+    PENDING={i:i,item:item};
+    toast(AREAS[i].name+" already has "+d.up.length+" items (cap "+S.set.cap+"). Finish or archive one first.",[["Add anyway","addforce"]]);
+    return false;
+  }
+  d.up.push(item);PENDING=null;persist();render();return true;
+}
+function toggleSeason(sk,si,on){
+  const m=S.season[sk]||(S.season[sk]={}),idx=+si.slice(1);
+  const text=(SEASONS[sk.split("-")[1]]||[])[idx]||"";
+  if(on){S.log.unshift({id:uid(),t:text,a:"Home",on:fmt(today()),pro:true});S.log=S.log.slice(0,MAXLOG);m[si]=S.log[0].id}
+  else{const lid=m[si];delete m[si];S.log=S.log.filter(l=>l.id!==lid)}
+  persist();render();
+}
+
+/* calendar file */
+function icsEsc(s){return String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\r?\n/g,"\\n")}
+function fold(line){const out=[];let s=line;while(s.length>73){out.push(s.slice(0,73));s=" "+s.slice(73)}out.push(s);return out.join("\r\n")}
+function buildICS(){
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//House Overview//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:House Overview"];
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  let n=0;
+  S.a.forEach((d,i)=>d.up.forEach(u=>{
+    let ds=due(u);if(!ds)return;if(days(ds)<0)ds=fmt(today());
+    L.push("BEGIN:VEVENT","UID:"+u.id+"@house-overview","DTSTAMP:"+stamp,"DTSTART;VALUE=DATE:"+ds.replace(/-/g,""),"SUMMARY:"+icsEsc(AREAS[i].name+": "+u.t));
+    if(u.every>0)L.push("RRULE:FREQ="+({d:"DAILY",w:"WEEKLY",m:"MONTHLY"}[u.unit||"m"])+";INTERVAL="+(+u.every));
+    const desc=[u.h?"Heads-up: "+u.h:"",u.n].filter(Boolean).join("\n");
+    if(desc)L.push("DESCRIPTION:"+icsEsc(desc));
+    L.push("BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+icsEsc(u.t),"TRIGGER:-PT15H","END:VALARM","END:VEVENT");n++;
+  }));
+  S.dates.forEach(x=>{
+    if(!x.d)return;
+    L.push("BEGIN:VEVENT","UID:"+x.id+"@house-overview","DTSTAMP:"+stamp,"DTSTART;VALUE=DATE:"+x.d.replace(/-/g,""),"SUMMARY:"+icsEsc(x.t),"RRULE:FREQ=YEARLY");
+    if(x.w>0)L.push("BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+icsEsc("Start planning: "+x.t),"TRIGGER:-P"+(x.w*7)+"D","END:VALARM");
+    L.push("BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:"+icsEsc(x.t),"TRIGGER:-PT15H","END:VALARM","END:VEVENT");n++;
+  });
+  L.push("END:VCALENDAR");
+  return{text:L.map(fold).join("\r\n")+"\r\n",n:n};
+}
+
+/* backup */
+function backupText(){return JSON.stringify({app:"house-overview",saved:new Date().toISOString(),state:S},null,1)}
+function restoreFrom(text){
+  let o;try{o=JSON.parse(text)}catch(e){return"That does not look like a backup."}
+  const st=o&&o.state?o.state:o;
+  if(!st||!Array.isArray(st.a)||st.a.length!==AREAS.length)return"That backup does not match this app.";
+  S=migrate(st);persist();render();return"";
+}
+
+/* quick add */
+function readQA(){
+  if(!QA)return;
+  const t=$("#qa-t"),a=$("#qa-a"),d=$("#qa-d"),r=$("#qa-r");
+  if(t)QA.t=t.value;if(a)QA.area=+a.value;if(d)QA.d=d.value;if(r)QA.r=r.value;
+}
+function drawSheet(){
+  const el=$("#sheet");
+  if(PL){drawPlan();return}
+  if(!QA){el.hidden=true;el.innerHTML="";return}
+  const task=QA.type==="task";
+  el.innerHTML=`<div role="dialog" aria-modal="true" aria-label="Quick add"><div class="seg"><button data-a="qatype" data-v="task" aria-pressed="${task}">Reminder</button><button data-a="qatype" data-v="idea" aria-pressed="${!task}">Idea or note</button></div>
+  <label class="t" for="qa-t">${task?"What needs doing?":"What did you notice or hear?"}</label><input type="text" id="qa-t" maxlength="120" value="${esc(QA.t||"")}">
+  <label class="t" for="qa-a">Area</label><select id="qa-a">${AREAS.map((a,i)=>`<option value="${i}"${i===QA.area?" selected":""}>${esc(a.name)}</option>`).join("")}</select>
+  ${task?`<label class="t" for="qa-d">Due date (optional)</label><input type="date" id="qa-d" value="${esc(QA.d||"")}"><label class="t" for="qa-r">Repeats</label><select id="qa-r">${REPEATS.map(r=>`<option value="${r[0]}"${r[0]===(QA.r||"0|m")?" selected":""}>${r[1]}</option>`).join("")}</select>`:""}
+  <div class="rowb"><button class="btn" data-a="qasave">Add</button><button class="btn ghost" data-a="qaclose">Cancel</button></div></div>`;
+  el.hidden=false;
+}
+function closeSheet(){QA=null;PL=null;drawSheet()}
+
+function act(a,b){
+  const i=+b.dataset.i,id=b.dataset.id,k=+b.dataset.k;
+  switch(a){
+  case"tab":{TAB=b.dataset.t;render();window.scrollTo(0,0);if(b.dataset.go){const el=document.getElementById(b.dataset.go);if(el)el.scrollIntoView()}break}
+  case"hideinstall":S.set.hideInstall=true;persist();render();break;
+  case"done":doDone(i,id);break;
+  case"undo":undo();break;
+  case"remind":{if(LAST){const l=S.log.find(x=>x.id===LAST.logId);if(l){l.pro=false;persist();render();toast("Logged as: she reminded me")}}break}
+  case"flip":{const l=S.log.find(x=>x.id===id);if(l){l.pro=l.pro===false;persist();render()}break}
+  case"arch":{const d=S.a[i],j=d.up.findIndex(u=>u.id===id);if(j>-1){const u=d.up.splice(j,1)[0];d.arch.unshift(u);persist();render();toast("Moved to archive")}break}
+  case"restore":{const d=S.a[i],j=d.arch.findIndex(u=>u.id===id);if(j>-1){const u=d.arch.splice(j,1)[0];delete u.doneOn;d.up.push(u);persist();render()}break}
+  case"delf":{const d=S.a[i];d.arch=d.arch.filter(u=>u.id!==id);persist();render();break}
+  case"add":{const el=$("#n"+i),t=el.value.trim();if(!t)break;tryAdd(i,mkItem(t,0,"m","",false));const e2=$("#n"+i);if(e2)e2.focus();break}
+  case"addforce":if(PENDING){tryAdd(PENDING.i,PENDING.item,true);$("#toast").hidden=true}break;
+  case"idadd":{const el=$("#idn"+i),t=el.value.trim();if(!t)break;const g=$("#idg"+i);S.a[i].ideas.push({t:t,tag:g?g.value:""});persist();render();const e2=$("#idn"+i);if(e2)e2.focus();break}
+  case"idx":S.a[i].ideas.splice(k,1);persist();render();break;
+  case"dadd":{const el=$("#nd"),t=el.value.trim();if(!t)break;S.dates.push({id:uid(),t:t,d:"",w:3});persist();render();break}
+  case"dx":S.dates.splice(k,1);persist();render();break;
+  case"decadd":{const q=$("#dqn").value.trim();if(!q)break;S.decisions.push({id:uid(),q:q,rec:$("#drn").value.trim(),res:false});persist();render();break}
+  case"decres":S.decisions[k].res=!S.decisions[k].res;persist();render();break;
+  case"decdel":S.decisions.splice(k,1);persist();render();break;
+  case"cistart":CI={step:0,text:""};go("checkin");break;
+  case"ciback":if(CI.step===0)CI=null;else CI.step--;render();window.scrollTo(0,0);break;
+  case"cinext":CI.step++;if(CI.step===STEPS.length-1)CI.text=buildUpdate();render();window.scrollTo(0,0);break;
+  case"cigen":CI.text=buildUpdate();render();break;
+  case"cicopy":copyText(CI.text).then(ok=>toast(ok?"Copied":"Select the text and copy it"));break;
+  case"cishare":shareText(CI.text);break;
+  case"cifinish":{
+    const text=(CI&&CI.text)||buildUpdate();
+    S.updates.unshift({on:fmt(today()),text:text});S.updates=S.updates.slice(0,30);
+    const wk=weekKey(today());if(!S.checkins.includes(wk))S.checkins.push(wk);
+    S.checkins=S.checkins.slice(-120);S.wins="";CI=null;persist();render();window.scrollTo(0,0);
+    toast("Check-in saved. "+plural(streak(),"week")+" in a row.");break;
+  }
+  case"hercopy":copyText(buildUpdate()).then(ok=>toast(ok?"Copied":"Could not copy"));break;
+  case"hershare":shareText(buildUpdate());break;
+  case"histcopy":copyText(S.updates[k].text).then(ok=>toast(ok?"Copied":"Could not copy"));break;
+  case"histdel":S.updates.splice(k,1);persist();render();break;
+  case"revgo":TAB="checkin";render();{const el=$("#review");if(el)el.scrollIntoView()}break;
+  case"revsave":revObj(b.dataset.m).done=true;persist();render();toast("Review saved");break;
+  case"cadd":S.contacts.push({n:"",r:"",p:""});persist();render();break;
+  case"cdel":S.contacts.splice(k,1);persist();render();break;
+  case"fadd":S.facts.push({k:"",v:""});persist();render();break;
+  case"fdel":S.facts.splice(k,1);persist();render();break;
+  case"ics":{
+    const r=buildICS();if(!r.n){toast("Nothing has a date yet.");break}
+    saveFile("house-overview.ics","text/calendar",r.text).then(s=>{
+      const m=$("#icsmsg");if(!m)return;
+      if(s==="declined")return;
+      m.textContent=s==="failed"?"Could not create the file here. Open this page in Safari and try again.":"Calendar file ready with "+plural(r.n,"event")+". Open it and tap Add All.";
+    });break;
+  }
+  case"bkfile":saveFile("house-overview-backup-"+fmt(today())+".json","application/json",backupText()).then(s=>{if(s==="failed")toast("Could not save the file. Use Copy backup text instead.");else if(s!=="declined")toast("Backup ready")});break;
+  case"bkcopy":copyText(backupText()).then(ok=>toast(ok?"Backup copied. Paste it into Notes or an email.":"Could not copy"));break;
+  case"bkrestore":{const v=$("#bkpaste").value.trim();if(!v){toast("Paste backup text first.");break}if(!armed("restore","Tap Restore again to replace your current data."))break;const m=restoreFrom(v);toast(m||"Backup restored");break}
+  case"reset":if(!armed("reset","Tap Reset again within 5 seconds to erase everything."))break;S=fresh();persist();CI=null;render();toast("Reset to the starting setup");break;
+  case"funkind":FUNF.kind=b.dataset.v;render();window.scrollTo(0,0);break;
+  case"fplan":{const ev=findEv(id);if(!ev)break;PL={id:id,date:S.fun.planned[id]||planDefault(ev)};drawPlan();break}
+  case"flclose":closeSheet();break;
+  case"fladd":{
+    const ev=findEv(PL.id),date=plDate();
+    const note=[evDateText(ev)+" at "+ev.pl,ev.cost?"Cost: "+ev.cost:"",ev.u].filter(Boolean).join("\n");
+    const title="Family fun: "+ev.t,d=S.a[4];
+    let it=d.up.find(x=>x.t===title);
+    if(it){it.d=date;it.last="";it.every=0}else{it=mkItem(title,0,"m",date,false);d.up.push(it)}
+    it.h="Family outing on "+nice(date)+(ev.tm?", "+ev.tm:"");it.n=note;
+    S.fun.planned[ev.id]=date;persist();closeSheet();render();
+    toast("Added to your list for "+nice(date)+". Find it under Myself.");break;
+  }
+  case"flics":{
+    const ev=findEv(PL.id),date=plDate();
+    saveFile("family-fun-"+ev.id+".ics","text/calendar",buildEventICS(ev,date)).then(r=>{
+      const m=$("#plmsg");if(!m||r==="declined")return;
+      m.textContent=r==="failed"?"Could not create the file here. Open this page in Safari and try again.":"Calendar file ready. Open it and tap Add.";
+    });break;
+  }
+  case"flg":{
+    const ev=findEv(PL.id),date=plDate(),nd=fmt(addDays(parse(date),1));
+    const url="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Family fun: "+ev.t)+"&dates="+date.replace(/-/g,"")+"/"+nd.replace(/-/g,"")+"&details="+encodeURIComponent(evDesc(ev))+"&location="+encodeURIComponent(evLoc(ev));
+    window.open(url,"_blank","noopener");break;
+  }
+  case"fab":QA={type:"task",area:1,t:"",d:"",r:"0|m"};drawSheet();{const t=$("#qa-t");if(t)t.focus()}break;
+  case"qatype":readQA();QA.type=b.dataset.v;drawSheet();break;
+  case"qaclose":closeSheet();break;
+  case"qasave":{
+    readQA();const t=(QA.t||"").trim();if(!t){toast("Type what needs doing.");break}
+    const ai=QA.area;
+    if(QA.type==="idea"){S.a[ai].ideas.push({t:t,tag:AREAS[ai].tags?AREAS[ai].tags[0]:""});persist();closeSheet();render();toast("Saved to "+AREAS[ai].name)}
+    else{const rp=(QA.r||"0|m").split("|");const item=mkItem(t,+rp[0],rp[1],QA.d||"",false);closeSheet();if(tryAdd(ai,item))toast("Added to "+AREAS[ai].name)}
+    break;
+  }
+  }
+}
+const RE=new Set(["last","every","unit","d","dtd","dtw","sday","scap","itag","funwhen","funwhere"]);
+function setField(t){
+  const f=t.dataset.f,v=t.value,i=+t.dataset.i,id=t.dataset.id,k=+t.dataset.k;
+  let u=null;
+  if(id){u=S.a[i].up.find(x=>x.id===id);if(!u)return}
+  switch(f){
+  case"scope":case"done":case"plan":S.a[i][f]=v;break;
+  case"ut":u.t=v;break;case"uh":u.h=v;break;case"un":u.n=v;break;
+  case"last":u.last=v;u.st=false;break;
+  case"d":u.d=v;u.st=false;break;
+  case"every":u.every=Math.max(0,parseInt(v,10)||0);u.st=false;break;
+  case"unit":u.unit=v;break;
+  case"dtn":S.dates[k].t=v;break;
+  case"dtd":S.dates[k].d=v;break;
+  case"dtw":S.dates[k].w=Math.max(0,Math.min(26,parseInt(v,10)||0));break;
+  case"ide":S.a[i].ideas[k].t=v;break;
+  case"itag":S.a[i].ideas[k].tag=v;break;
+  case"cn":S.contacts[k].n=v;break;case"cr":S.contacts[k].r=v;break;case"cp":S.contacts[k].p=v;break;
+  case"fk":S.facts[k].k=v;break;case"fv":S.facts[k].v=v;break;
+  case"dq":S.decisions[k].q=v;break;case"dr":S.decisions[k].rec=v;break;
+  case"wins":S.wins=v;break;case"focus":S.focus=v;break;
+  case"cit":if(CI)CI.text=v;return;
+  case"funwhen":FUNF.when=v;return;
+  case"funwhere":FUNF.where=v;return;
+  case"rslip":revObj(t.dataset.m).slip=v;break;
+  case"rchg":revObj(t.dataset.m).chg=v;break;
+  case"sday":S.set.day=+v;break;
+  case"scap":S.set.cap=Math.max(3,Math.min(20,parseInt(v,10)||7));break;
+  default:return;
+  }
+  persist();
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click",function(e){
+  if(e.target.id==="sheet"){closeSheet();return}
+  const b=e.target.closest("[data-a]");
+  if(b)act(b.dataset.a,b);
+});
+document.addEventListener("input",function(e){
+  const t=e.target;if(!t.dataset||!t.dataset.f||RE.has(t.dataset.f)||t.dataset.f==="season")return;
+  setField(t);
+});
+document.addEventListener("change",function(e){
+  const t=e.target;
+  if(t.id==="bkin"){
+    const f=t.files&&t.files[0];if(!f)return;
+    const r=new FileReader();r.onload=function(){const m=restoreFrom(String(r.result));toast(m||"Backup restored")};r.readAsText(f);t.value="";return;
+  }
+  if(!t.dataset||!t.dataset.f)return;
+  if(t.dataset.f==="season"){toggleSeason(t.dataset.sk,t.dataset.si,t.checked);return}
+  if(RE.has(t.dataset.f)){setField(t);render()}
+});
+document.addEventListener("toggle",function(e){const d=e.target;if(d&&d.tagName==="DETAILS"&&d.dataset.o)OPEN[d.dataset.o]=d.open},true);
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&(QA||PL)){closeSheet();return}
+  if(e.key!=="Enter"||e.target.tagName!=="INPUT")return;
+  if(e.target.id==="qa-t"){const b=$('[data-a="qasave"]');if(b)b.click();return}
+  const p=e.target.parentElement;
+  if(p&&p.classList.contains("add")){const b=p.querySelector("button")||(p.previousElementSibling&&p.previousElementSibling.querySelector("button"));if(b)b.click()}
+});
+
+render();
+
+/* ---------- optional sync inside Claude ---------- */
+(async function(){
+  try{
+    if(!window.claude||!window.claude.use)return;
+    const u=await window.claude.use("user"),db=await window.claude.use("db");
+    if(!u||!db)return;
+    const id=await u.id();if(!id)return;
+    DB=db;UIDV=id;
+    const snap=await db.collection("data/users/"+id).doc("state").get();
+    let rem=null;
+    if(snap&&snap.exists){try{rem=JSON.parse(snap.data().json)}catch(e){}}
+    if(rem&&Array.isArray(rem.a)&&rem.a.length===AREAS.length&&(rem.at||0)>=(S.at||0)){
+      const old=rem.v;S=migrate(rem);
+      try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+      setSync("Synced with your Claude account.");render();
+      if(old!==VERSION)persist();
+    }else{persist()}
+  }catch(e){}
+})();
+})();
+</script>
+</body>
+</html>
